@@ -9,7 +9,7 @@ downPayment.value = formatNumberWithCommas(90000);
 downPaymentPercent.value = 20;
 termInYears.value = 30;
 interest.value = 7;
-//chart(42, 58);
+chart(42, 58);
 
 function Calculartor() {
     let interest = document.getElementById('interestRate').value;
@@ -105,13 +105,22 @@ function removeCommasAndGetNumber(formattedNumber) {
     return formattedNumber.replace(/,/g, '');
 }
 
+var myPieChart; // Declarar la variable fuera de la función
+
 function chart(principal, interest) {
     Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#292b2c';
 
-    // Pie Chart Example
+    // Obtener el elemento canvas
     var ctx = document.getElementById("myPieChart");
-    var myPieChart = new Chart(ctx, {
+
+    // Si existe una instancia de gráfica, eliminarla
+    if (myPieChart) {
+        myPieChart.destroy();
+    }
+
+    // Crear una nueva instancia de la gráfica
+    myPieChart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: ["Principal", "Interest"],
@@ -119,14 +128,15 @@ function chart(principal, interest) {
                 data: [principal, interest],
                 backgroundColor: ['#007bff', '#28a745'],
             }],
-        }, options: {
+        },
+        options: {
             tooltips: {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         var dataset = data.datasets[tooltipItem.datasetIndex];
                         var value = dataset.data[tooltipItem.index];
                         var label = data.labels[tooltipItem.index];
-                        return label + ': ' + value + '%'; // Puedes personalizar el formato
+                        return label + ': ' + value + '%';
                     }
                 }
             }
@@ -135,5 +145,6 @@ function chart(principal, interest) {
 }
 
 function calcularPorcentaje(parte, total) {
+    console.log(Math.round((parte / total) * 100) + "")
     return Math.round((parte / total) * 100);
 }
