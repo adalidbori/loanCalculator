@@ -1,0 +1,16 @@
+
+.calculator-background {
+    background-color: #f3f4f8;
+}
+
+.text-negrita{
+    font-weight: bold;
+}
+.separator {
+    border-bottom: 1px solid #ccc; /* Puedes ajustar el color y el estilo del borde según tus preferencias */
+}
+
+.calculator-border {
+    border: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
+    border-radius: 5px; /* Puedes ajustar el radio del borde para que sea más o menos redondeado */
+  }
