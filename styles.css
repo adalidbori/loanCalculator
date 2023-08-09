@@ -14,3 +14,9 @@
     border: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
     border-radius: 5px; /* Puedes ajustar el radio del borde para que sea más o menos redondeado */
   }
+
+  .custom-margin-left {
+    margin-left: 1.5rem; /* Puedes ajustar el valor según tus preferencias */
+  }
+
+  
