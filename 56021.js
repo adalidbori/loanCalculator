@@ -60,7 +60,7 @@ function amountListener(input) {
     let amount = removeCommasAndGetNumber(document.getElementById('loanAmount').value);
     if (!isNaN(percetValue) && !isNaN(amount) && amount !== 0) {
         const down = (percetValue / 100) * amount;
-        downPayment.value = formatNumberWithCommas(down);
+        downPayment.value = formatNumberWithCommas(down.toFixed(2));
     } else {
         downPayment.value = 0;
     }
